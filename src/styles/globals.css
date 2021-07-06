@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @layer base {
-  * {
-    font-family: "Work Sans", sans-serif;
+  :root {
+    --color-primary: #a55eea;
+    --color-primary-darker: #8854d0;
+
+    --color-secondary: #fc5c65;
+    --color-secondary-darker: #eb3b5a;
+
+    --color-tertiary: #45aaf2;
+    --color-tertiary-darker: #2d98da;
   }
 
   h1 {
