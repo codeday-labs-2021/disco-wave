@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
+
 function Spotify(options) {
   return {
     id: 'spotify',
@@ -26,6 +27,14 @@ function Spotify(options) {
   }
 }
 export default NextAuth({
+  pages: {
+    signIn: '/auth/signin',
+    signOut: '/auth/signout',
+    error: '/auth/error', // Error code passed in query string as ?error=
+    verifyRequest: '/auth/verify-request', // (used for check email message)
+    newUser: undefined // If set, new users will be directed here on first sign in
+  },
+
   // Configure one or more authentication providers
   providers: [
     Spotify({
