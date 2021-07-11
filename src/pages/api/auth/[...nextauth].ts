@@ -11,7 +11,7 @@ async function refreshAccessToken(session) {
     spotifyApi.setRefreshToken(session.refreshToken)
     let refreshedTokens = await spotifyApi.refreshAccessToken().then(
       function (data) {
-        console.log(data.body)
+        //console.log(data.body)
         return data.body
       },
       function (err) {
