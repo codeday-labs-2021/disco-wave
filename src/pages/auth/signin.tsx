@@ -10,15 +10,15 @@ export default function SignIn() {
           <h1 className="text-accent-primary text-4xl md:text-5xl">
             Welcome to DiscoWave
           </h1>
-          <p className="text-gray-500 border-t border-gray-200 pt-6">
+          <p className="text-gray-100 border-t border-gray-200 pt-6">
           Making discos just a little bit cooler!
           </p>
           <button
             className="flex w-full justify-center items-center space-x-3 space-x-4 bg-accent-spotify hover:bg-accent-spotify-darker font-bold py-3 px-6 transition ease-in-out p-2 rounded-full text-white"
             onClick={() => signIn("spotify")}
           >
-            <FaSpotify fontSize="2rem" />
-            <span className="text-lg md:text-xl">Sign in with Spotify</span>
+            <FaSpotify fontSize="2rem" className="bg-transparent"/>
+            <span className="text-lg md:text-xl bg-transparent">Sign in with Spotify</span>
           </button>
         </div>
       </div>

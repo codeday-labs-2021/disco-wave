@@ -19,6 +19,11 @@
     --color-spotify-darker: #1db954;
   }
 
+  * {
+    @apply bg-black;
+    @apply text-white;
+  }
+
   h1 {
     @apply text-5xl;
     @apply font-bold;
