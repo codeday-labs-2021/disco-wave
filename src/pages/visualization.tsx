@@ -12,7 +12,7 @@ const fetcher = async (
 
 export default function Vizualization({initialData}) {
   const { data, error } = useSWR('/api/current_song', fetcher, {initialData})
-  return <div>{data.name}</div>;
+  return <div>{data ? `${data.name} by ${data.artists.map((artist)=>{return artist.name})}` : ""}</div>;
 }
 
 export async function getServerSideProps(context) {
