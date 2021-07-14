@@ -5,7 +5,7 @@ export default function Home() {
   const [session, loading] = useSession();
 
   return (
-    <>
+    <div className="bg-black">
       <Navbar />
       {!session && (
         <>
@@ -29,7 +29,7 @@ export default function Home() {
           </button>
         </>
       )}
-    </>
+    </div>
   );
 }
 export async function getServerSideProps(context) {
