@@ -8,25 +8,17 @@ const spotifyApi = new SpotifyWebApi({
 
 export async function getCurrentSong(accessToken) {
   spotifyApi.setAccessToken(accessToken);
-  spotifyApi.getMyCurrentPlaybackState().then(async function(data) {
+  let data = await spotifyApi.getMyCurrentPlaybackState().then(function(data) {
     // Output items
     if (data.body && data.body.is_playing) {
-      let data = await spotifyApi.getMyCurrentPlaybackState().then(
-        function (data) {
-          return data.body.item
-        },
-        function (err) {
-          console.log('Something went wrong!', err)
-        },
-      )
-      return data
+      return {playBackResult: data.body.item}
     } else {
-      return "User is not playing anything, or doing so in private."
+      return {playBackResult: null};
     }
   }, function(err) {
     console.log('Something went wrong!', err);
   });
-  
+  return data;
 }
 
 export default async function resolver(req, res) {
