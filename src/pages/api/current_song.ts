@@ -11,7 +11,7 @@ export async function getCurrentSong(accessToken) {
   let data = await spotifyApi.getMyCurrentPlaybackState().then(function(data) {
     // Output items
     if (data.body && data.body.is_playing) {
-      return {playBackResult: data.body.item}
+      return {playBackResult: data.body.item, currentMS: data.body.progress_ms}
     } else {
       return {playBackResult: null};
     }
