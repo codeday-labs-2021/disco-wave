@@ -57,9 +57,6 @@ function Spotify(options) {
   }
 }
 export default NextAuth({
-  pages: {
-    signIn: '/auth/signin',
-  },
   // Configure one or more authentication providers
   providers: [
     Spotify({
