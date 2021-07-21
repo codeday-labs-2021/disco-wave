@@ -16,7 +16,6 @@ export default function Vizualization({ initialData }) {
   return (
     <div>
       <div className="p-6 flex flex-col space-y-6 md:space-y-0 md:flex-row items-center">
-        {/* {console.log(data)} */}
         <div className="bg-gray-900 rounded-lg p-6 w-full max-w-sm space-y-4">
           <h4>Now Playing</h4>
           <div className="flex space-x-4 items-center">

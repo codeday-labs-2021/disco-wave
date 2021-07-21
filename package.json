@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "next": "11.0.1",
     "next-auth": "^3.27.2",
     "react": "17.0.2",
