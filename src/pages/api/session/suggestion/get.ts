@@ -1,4 +1,4 @@
-import { getSessions } from "../sessionsData";
+import { getSessions } from "../sessionsOperations";
 
 export default async function addsuggestion(req,res){
     if (req.method !== 'POST') {

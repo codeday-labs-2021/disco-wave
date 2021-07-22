@@ -43,6 +43,18 @@ export default function resolver(req,res){
     res.send("Hey wait a minute this place is restricted how did you get here?!\nTake a fish for now: ><>");
 }
 
+export function verifySessionID(session_id: string){
+    
+    let status = false;
+    sessions.forEach((item, index)=>{
+        if(item.session_id===session_id){
+            status = true;
+            return
+        }
+    })
+    return status ? "Session ID is valid" : "No session matched the ID given"
+}
+
 export function appendSession(data:appendData): void{
     sessions.push(data);
     eventEmitter.emit(emitterKeyword)
@@ -62,7 +74,7 @@ export function appendSong(session_id: string, suggestion: string, password: str
         eventEmitter.emit(emitterKeyword)
         return "Suggestion added"
     }else{
-        return "No session matched ID given"
+        return "No session matched the ID given"
     }
 }
 

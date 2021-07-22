@@ -1,6 +1,6 @@
 const crypto = require('crypto')
 const bcrypt = require('bcrypt');
-import { appendSession } from "./sessionsData";
+import { appendSession } from "./sessionsOperations";
 
 export default async function resolver(req,res){
     if (req.method !== 'POST') {
@@ -9,6 +9,7 @@ export default async function resolver(req,res){
       }
 
     const body = req.headers;
+    
     const hash = await bcrypt.hash(body.password, 10)
     const id: string = crypto.randomBytes(8).toString("hex")
     let data = {session_id:id, password: hash, song_reqs: []}
