@@ -200,6 +200,6 @@ export async function getServerSideProps(context) {
   if (req) {
     url = req.headers.host;
   }
-  console.log(url);
+
   return { props: { initialData, url } };
 }
