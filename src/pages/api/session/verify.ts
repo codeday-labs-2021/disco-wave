@@ -10,7 +10,7 @@ export default async function resolver(req,res){
     
     
     
-    const response = verifySessionID(body.session_id);
+    const response = await verifySessionID(body.session_id);
     
       if(response==="No session matched the ID given"){
         res.status(500).json({data: response});
