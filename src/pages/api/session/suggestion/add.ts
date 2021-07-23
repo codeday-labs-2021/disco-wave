@@ -6,7 +6,7 @@ export default async function addsuggestion(req,res){
         return
       }
     const body = req.headers;
-    const result = appendSong(body.session_id, body.suggestion, body.password)
+    const result = await appendSong(body.session_id, body.suggestion, body.password)
     if(result==="Suggestion added"){
         res.status(200).send(result)
     }else if(result==="Wrong password"){

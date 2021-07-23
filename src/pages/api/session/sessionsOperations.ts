@@ -1,9 +1,10 @@
-import { session } from "next-auth/client";
+const { Deta } = require('deta');
+const deta = Deta(process.env.DETA_KEY)
+const db = deta.Base('sessions_db'); 
+
 
 const bcrypt = require('bcrypt')
-const fs = require('fs')
-const events = require('events');
-const eventEmitter = new events.EventEmitter();
+
 
 
 
@@ -12,29 +13,7 @@ interface appendData{
     password: string;
     song_reqs: string[]
 }
-const emitterKeyword = "update";
 
-let sessions:appendData[] = [];
-
-const sessionArrUpdate = ()=>{
-    fs.writeFile('sessionData.json', JSON.stringify(sessions), function (err) {
-        if (err) throw err;
-        console.log('File updated successfully.');
-      })
-}
-
-eventEmitter.on(emitterKeyword, sessionArrUpdate);
-
-try{ 
-    fs.accessSync('sessionData.json', fs.constants.F_OK);
-    sessions = JSON.parse(fs.readFileSync('sessionData.json', 'utf8'))
-}catch(err){
-    fs.writeFile('sessionData.json', JSON.stringify(sessions), function (err) {
-        if (err) throw err;
-        console.log('File created successfully.');
-      })
-    
-}
 
 
 
@@ -43,48 +22,41 @@ export default function resolver(req,res){
     res.send("Hey wait a minute this place is restricted how did you get here?!\nTake a fish for now: ><>");
 }
 
-export function verifySessionID(session_id: string){
+export async function verifySessionID(session_id: string){
     
-    let status = false;
-    sessions.forEach((item, index)=>{
-        if(item.session_id===session_id){
-            status = true;
-            return
-        }
-    })
-    return status ? "Session ID is valid" : "No session matched the ID given"
+    const res = await db.fetch({"session_id":session_id})
+    if(res.items.length<0){
+        return "No session matched the ID given"
+    }
+    return status;
 }
 
 export function appendSession(data:appendData): void{
-    sessions.push(data);
-    eventEmitter.emit(emitterKeyword)
+    db.put(data);
+    
 }
 
-export function appendSong(session_id: string, suggestion: string, password: string): string {
-    let newSession=-1;
-    sessions.forEach((item, index)=>{
-        if(item.session_id===session_id){
-            newSession = index;
-            return
-        }
-    })
-    if(newSession>=0){
-        if(!bcrypt.compareSync(password, sessions[newSession].password)){return "Wrong password"}
-        sessions[newSession].song_reqs.push(suggestion);
-        eventEmitter.emit(emitterKeyword)
+export async function appendSong(session_id: string, suggestion: string, password: string) {
+    
+    const res = await db.fetch({"session_id":session_id})
+    if(res.items.length>0){
+        if(!bcrypt.compareSync(password, res.items[0].password)){return "Wrong password"}
+
+        await db.update({"song_reqs":db.util.append(suggestion)}, res.items[0].key)
+        
         return "Suggestion added"
     }else{
         return "No session matched the ID given"
     }
 }
+    
 
-export function getSessions(session_id: string, password: string): appendData[]|string|string[] {
-    console.log(sessions)
-    const newSessions = sessions.filter(session=>session.session_id === session_id);
-    if(newSessions.length>0){
-        if(!bcrypt.compareSync(password, newSessions[0].password)){return "Wrong password"}
+export async function getSessions(session_id: string, password: string) {
+    const res = await db.fetch({"session_id":session_id})
+    if(res.items.length>0){
+        if(!bcrypt.compareSync(password, res.items[0].password)){return "Wrong password"}
         
-        return newSessions[0].song_reqs
+        return res.items[0].song_reqs
     }else{
         return "No session matched ID given"
     }

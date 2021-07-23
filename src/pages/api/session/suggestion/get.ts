@@ -6,7 +6,7 @@ export default async function addsuggestion(req,res){
         return
       }
     const body = req.headers;
-    const result = getSessions(body.session_id, body.password)
+    const result = await getSessions(body.session_id, body.password)
     if(result!=="No session matched ID given"&& result!=="Wrong password"){
         res.status(200).json(result)
     }else{

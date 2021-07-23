@@ -1170,6 +1170,13 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
+deta@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/deta/-/deta-1.0.0.tgz#cbe37745b1b40f4fecdd4fb073fbd6358d7759a7"
+  integrity sha512-w9t/oXkpbHzJTtuTW47C9KQUkeE8KUMuta2I1m7FcopTRi5uB+NINFRdEjgZq6qWt6kDCDiZT0GIyOYOhyYGzw==
+  dependencies:
+    node-fetch "^2.6.1"
+
 detect-libc@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"

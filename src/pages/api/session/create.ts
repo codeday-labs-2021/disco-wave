@@ -13,7 +13,7 @@ export default async function resolver(req,res){
     const hash = await bcrypt.hash(body.password, 10)
     const id: string = crypto.randomBytes(8).toString("hex")
     let data = {session_id:id, password: hash, song_reqs: []}
-    appendSession(data);
+    await appendSession(data);
     res.status(200).json({session_id:id});
     
     
