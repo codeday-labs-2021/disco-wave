@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Head from "next/head";
+import BaseHead from "../../components/BaseHead";
 
 const CreateSuggestion = () => {
   const [render, setRender] = useState(false);
@@ -130,22 +131,16 @@ const CreateSuggestion = () => {
           </form>
         </div>
       </div>
+      <BaseHead />
       <Head>
         <title>Disco Wave | Create Suggestion</title>
-        <meta
-          property="og:url"
-          content="https://disco-wave.vercel.app/suggestion/create"
-        />
       </Head>
     </>
   ) : (
     <>
+      <BaseHead />
       <Head>
         <title>Disco Wave | Create Suggestion</title>
-        <meta
-          property="og:url"
-          content="https://disco-wave.vercel.app/suggestion/create"
-        />
       </Head>
     </>
   );

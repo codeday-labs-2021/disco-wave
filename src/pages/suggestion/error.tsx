@@ -1,4 +1,5 @@
 import Head from "next/head";
+import BaseHead from "../../components/BaseHead";
 
 const ErrorSuggestion = () => {
   return (
@@ -13,12 +14,9 @@ const ErrorSuggestion = () => {
           </p>
         </div>
       </div>
+      <BaseHead />
       <Head>
         <title>Disco Wave | Visualization</title>
-        <meta
-          property="og:url"
-          content="https://disco-wave.vercel.app/suggestion/error"
-        />
       </Head>
     </>
   );

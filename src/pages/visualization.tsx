@@ -7,6 +7,7 @@ import { HiX } from "react-icons/hi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Head from "next/head";
+import BaseHead from "../components/BaseHead";
 
 const fetcher = async (input: RequestInfo, init: RequestInit, ...args) => {
   const res = await fetch(input, init);
@@ -75,12 +76,9 @@ export default function Vizualization({ initialData, url }) {
 
   return (
     <>
+      <BaseHead />
       <Head>
         <title>Disco Wave | Visualization</title>
-        <meta
-          property="og:url"
-          content="https://disco-wave.vercel.app/visualization"
-        />
       </Head>
 
       <div className="z-0">

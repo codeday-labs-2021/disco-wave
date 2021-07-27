@@ -1,6 +1,7 @@
 import { signIn, signOut, useSession, getSession } from "next-auth/client";
 import Navbar from "../components/Navbar";
 import Head from "next/head";
+import BaseHead from "../components/BaseHead";
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -9,8 +10,9 @@ export default function Home() {
     <>
       <Head>
         <title>Disco Wave | Homepage</title>
-        <meta property="og:url" content="https://disco-wave.vercel.app" />
       </Head>
+      <BaseHead />
+
       <div className="bg-black">
         <Navbar />
         <p>hi</p>
