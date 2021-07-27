@@ -16,6 +16,37 @@ export default function resolver(req, res) {
   );
 }
 
+export async function removeSong(
+  session_id: string,
+  admin_password: string,
+  song_index: number
+) {
+  const res = await db.fetch({
+    session_id: session_id,
+  });
+
+  if (res.items.length > 0) {
+    if (!bcrypt.compareSync(admin_password, res.items[0].admin_password)) {
+      return "Wrong password";
+    }
+    const copyOfReqs = res.items[0].song_reqs;
+
+    if (song_index >= copyOfReqs.length) {
+      return "Index given was too high";
+    }
+
+    if (song_index > -1) {
+      copyOfReqs.splice(song_index, 1);
+    } else {
+      return "Index given was too low";
+    }
+    await db.update({ song_reqs: copyOfReqs }, res.items[0].key);
+    return "Requests updated";
+  } else {
+    return "No session matched the ID given";
+  }
+}
+
 export async function verifySessionID(session_id: string) {
   const res = await db.fetch({ session_id: session_id });
   if (res.items.length < 0) {
@@ -50,7 +81,7 @@ export async function appendSong(
   }
 }
 
-export async function getSessions(session_id: string, password: string) {
+export async function getSongs(session_id: string, password: string) {
   const res = await db.fetch({ session_id: session_id });
   if (res.items.length > 0) {
     if (!bcrypt.compareSync(password, res.items[0].password)) {

@@ -1,35 +1,21 @@
 import { signIn, signOut, useSession, getSession } from "next-auth/client";
 import Navbar from "../components/Navbar";
+import Head from "next/head";
 
 export default function Home() {
   const [session, loading] = useSession();
 
   return (
-    <div className="bg-black">
-      <Navbar />
-      {!session && (
-        <>
-          Not signed in <br />
-          <button
-            className="bg-accent-primary hover:bg-accent-primary-darker transition ease-in-out p-2 rounded-lg text-white"
-            onClick={() => signIn()}
-          >
-            Sign in
-          </button>
-        </>
-      )}
-      {session && (
-        <>
-          Signed in as {session.user.name} <br />
-          <button
-            className="bg-accent-primary hover:bg-accent-primary-darker transition ease-in-out p-2 rounded-lg text-white text-base"
-            onClick={() => signOut()}
-          >
-            Sign out
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      <Head>
+        <title>Disco Wave | Homepage</title>
+        <meta property="og:url" content="https://disco-wave.vercel.app" />
+      </Head>
+      <div className="bg-black">
+        <Navbar />
+        <p>hi</p>
+      </div>
+    </>
   );
 }
 export async function getServerSideProps(context) {

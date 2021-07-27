@@ -3258,11 +3258,6 @@ purgecss@^4.0.3:
     postcss "^8.2.1"
     postcss-selector-parser "^6.0.2"
 
-qr.js@0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
-  integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
-
 qs@^6.9.4:
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.1.tgz#4931482fa8d647a5aab799c5271d2133b981fb6a"
@@ -3350,14 +3345,6 @@ react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-qr-code@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-qr-code/-/react-qr-code-2.0.0.tgz#ecd66ab88d7d4ba759d997832d695b4995a9be25"
-  integrity sha512-jNkwXhpNR7wU20nuiN/PgqOYrKmD2QPHZdPJVLL5qbeULP+wzQUo4EL9Q5h3lpmvwrGnjM1rNUyET+C6Sq5NTg==
-  dependencies:
-    prop-types "^15.7.2"
-    qr.js "0.0.0"
 
 react-refresh@0.8.3:
   version "0.8.3"
