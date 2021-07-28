@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Head from "next/head";
 import BaseHead from "../components/BaseHead";
+import VisualizationComponent from "../components/VisualizationComponent";
 
 const fetcher = async (input: RequestInfo, init: RequestInit, ...args) => {
   const res = await fetch(input, init);
@@ -280,8 +281,8 @@ export default function Vizualization({ initialData, url }) {
               </ul>
             </div>
           </div>
-          <div className="">
-            <div className="bg-gray-900 rounded-lg p-6 space-y-4">
+          <div className="w-full flex justify-end">
+            <div className="bg-gray-900 rounded-lg p-6 space-y-4 w-max">
               <h4>
                 {sessionId ? "Scan to request song" : "Setup Song Suggestions"}
               </h4>
@@ -321,7 +322,8 @@ export default function Vizualization({ initialData, url }) {
             </div>
           </div>
         </div>
-        <div className="bg-white w-7"></div>
+
+        <VisualizationComponent />
       </div>
     </>
   );
