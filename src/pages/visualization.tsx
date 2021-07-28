@@ -282,7 +282,7 @@ export default function Vizualization({ initialData, url }) {
             </div>
           </div>
           <div className="w-full flex justify-end">
-            <div className="bg-gray-900 rounded-lg p-6 space-y-4 w-max">
+            <div className="bg-gray-900 rounded-lg p-6 space-y-4 w-full md:w-max">
               <h4>
                 {sessionId ? "Scan to request song" : "Setup Song Suggestions"}
               </h4>

@@ -9,9 +9,8 @@ export default class Visualization extends React.Component {
   }
 
   componentDidMount() {
-    const p5 = require("p5");
-    window.p5 = p5;
-    require("p5/lib/addons/p5.sound");
+    let p5 = require("p5");
+    require("./p5_sound/p5.sound.min.js");
 
     const Sketch = (p) => {
       var fft;
@@ -29,7 +28,7 @@ export default class Visualization extends React.Component {
       p.setup = () => {
         mic = new p5.AudioIn();
         mic.start();
-        p.createCanvas(800, 600);
+        p.createCanvas(800, 500);
         p.angleMode(p5.DEGREES);
         fft = new p5.FFT();
         fft.setInput(mic);
