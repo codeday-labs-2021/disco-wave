@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
   if (session && res && session.accessToken) {
     //if user is logged in, redirect to homepage
     res.writeHead(302, {
-      Location: "/",
+      Location: "/home",
     });
     //end the connection
     res.end();

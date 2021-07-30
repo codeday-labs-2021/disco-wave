@@ -5,7 +5,7 @@ import { GiSoundWaves } from "react-icons/gi";
 import { signOut, useSession } from "next-auth/client";
 import { useEffect } from "react";
 import Image from "next/image";
-import DiscoWaveLogo from "../../public/disco-wave-logo.svg";
+import DiscoWaveLogo from "../../public/logo-with-text.svg";
 
 export default function Navbar() {
   const [session, loading] = useSession();
@@ -19,7 +19,12 @@ export default function Navbar() {
 
   return (
     <div className="flex space-x-8 items-center border-b border-gray-300 px-4 py-2 font-bold">
-      <Image src={DiscoWaveLogo} width={54} height={54} />
+      <Image
+        src={DiscoWaveLogo}
+        width={400}
+        height={96}
+        alt="Disco Wave Logo"
+      />
       <div className="flex divide-x divide-gray-400 items-center">
         <div className="hover:underline pr-4">
           <a href="/" className="flex items-center space-x-1">

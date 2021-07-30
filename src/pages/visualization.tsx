@@ -82,7 +82,7 @@ export default function Vizualization({ initialData, url }) {
         <title>Disco Wave | Visualization</title>
       </Head>
 
-      <div className="z-0">
+      <div className="z-0 w-full">
         <Modal defaultOpen={modalStatus} setDefaultOpen={setModalStatus}>
           <div className="space-y-3">
             <div className="space-y-3">
@@ -152,7 +152,7 @@ export default function Vizualization({ initialData, url }) {
           </div>
         </Modal>
         <ToastContainer />
-        <div className="p-6 md:grid md:grid-cols-3 gap-4 flex flex-col space-y-6 md:space-y-0 md:flex-row items-center">
+        <div className="p-6 lg:grid lg:grid-cols-3 gap-4 flex flex-col space-y-6 lg:space-y-0 lg:flex-row items-center">
           <div className="bg-gray-900 rounded-lg p-6 w-full max-w-sm space-y-4">
             <h4>Now Playing</h4>
             <div className="flex space-x-4 items-center">
@@ -217,7 +217,7 @@ export default function Vizualization({ initialData, url }) {
               </small>
             </div>
           </div>
-          <div>
+          <div className="w-full justify-center flex">
             <div
               className={`bg-gray-900 rounded-lg p-6 w-full max-w-sm space-y-4 ${
                 reqData.length <= 0 ? "hidden" : ""
@@ -281,7 +281,7 @@ export default function Vizualization({ initialData, url }) {
               </ul>
             </div>
           </div>
-          <div className="w-full flex justify-end">
+          <div className="w-full flex justify-center lg:justify-end">
             <div className="bg-gray-900 rounded-lg p-6 space-y-4 w-full md:w-max">
               <h4>
                 {sessionId ? "Scan to request song" : "Setup Song Suggestions"}
@@ -322,9 +322,8 @@ export default function Vizualization({ initialData, url }) {
             </div>
           </div>
         </div>
-
-        <VisualizationComponent />
       </div>
+      <VisualizationComponent />
     </>
   );
 }

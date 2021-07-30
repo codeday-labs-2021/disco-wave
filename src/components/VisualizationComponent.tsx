@@ -28,7 +28,7 @@ export default class Visualization extends React.Component {
       p.setup = () => {
         mic = new p5.AudioIn();
         mic.start();
-        p.createCanvas(800, 500);
+        p.createCanvas(800, 450);
         p.angleMode(p5.DEGREES);
         fft = new p5.FFT();
         fft.setInput(mic);

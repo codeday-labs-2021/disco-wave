@@ -147,7 +147,3 @@ const CreateSuggestion = () => {
 };
 
 export default CreateSuggestion;
-
-// export async function getServerSideProps({ query }, res) {
-//   //get the request and result from the context
-// }
