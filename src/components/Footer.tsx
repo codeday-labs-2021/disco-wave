@@ -50,7 +50,7 @@ export default function Footer() {
           <h4>Resources</h4>
           <ul className="text-sm space-y">
             <li className="hover:text-gray-400 transition ease-in-out">
-              Privacy Policy
+              <a href="/privacy-policy">Privacy Policy</a>
             </li>
 
             <li className="hover:text-gray-400 transition ease-in-out">
