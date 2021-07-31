@@ -1,5 +1,5 @@
 # Disco Wave
-![Alt text](disco-wave/public/to/disco-wave-logo.png?raw=true "Title")
+![Alt text](disco-wave/public/disco-wave-logo.png?raw=true "Title")
 Disco Wave is making discos just a little bit cooler! With awesome audio visualizations and song suggestions from guests, your next party is going to be even cooler! 
 
 ## Description
