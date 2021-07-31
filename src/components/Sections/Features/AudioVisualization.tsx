@@ -20,7 +20,9 @@ export default function AudioVisualization() {
               about your privacy (rightfully so), check out our{" "}
               <a className="underline" href="#">
                 privacy policy
-              </a>{" "}
+              </a>
+              {"."} <br />
+              **This is not guaranteed ;)
             </small>
           </p>
         </div>
