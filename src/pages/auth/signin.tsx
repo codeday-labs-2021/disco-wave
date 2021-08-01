@@ -21,6 +21,18 @@ export default function SignIn() {
             <p className="text-gray-400 border-t border-gray-400 pt-6">
               Making discos just a little bit cooler!
             </p>
+
+            <p className="text-xs text-gray-400">
+              By signing in you agree to our{" "}
+              <a href="/privacy-policy" className="underline">
+                privacy policy
+              </a>{" "}
+              and{" "}
+              <a href="#" className="underline">
+                terms of service
+              </a>
+              .
+            </p>
             <button
               className="flex w-full justify-center items-center space-x-3 space-x-4 bg-accent-spotify hover:bg-accent-spotify-darker font-bold py-3 px-6 transition ease-in-out p-2 rounded-full text-white"
               onClick={() => signIn("spotify")}
