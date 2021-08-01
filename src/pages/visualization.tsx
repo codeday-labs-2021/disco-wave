@@ -329,9 +329,19 @@ export default function Vizualization({ initialData, url }) {
 }
 
 export async function getServerSideProps(context) {
-  const { req } = context;
+  const { req, res } = context;
   const { getCurrentSong } = require("../pages/api/current_song");
   const session = await getSession(context);
+
+  if (!session) {
+    //if user is logged in, redirect to homepage
+    res.writeHead(302, {
+      Location: "/",
+    });
+    //end the connection
+    res.end();
+  }
+
   let initialData = await getCurrentSong(session.accessToken);
   if (initialData == undefined) {
     initialData = null;

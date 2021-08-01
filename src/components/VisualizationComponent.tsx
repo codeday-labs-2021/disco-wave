@@ -1,6 +1,10 @@
 import React from "react";
 
 export default class Visualization extends React.Component {
+  state = {
+    open: true,
+  };
+
   private myRef: React.RefObject<HTMLDivElement>;
   private changeVis;
   constructor(props) {
@@ -73,15 +77,23 @@ export default class Visualization extends React.Component {
     return (
       <>
         <div className="flex justify-center" ref={this.myRef}></div>
-        <div className="flex justify-center w-full mt-2">
-          <button
-            className="bg-accent-spotify hover:bg-accent-spotify-darker transition ease-in-out p-2 rounded-lg text-white text-base"
-            onClick={() => {
-              this.changeVis();
-            }}
-          >
-            Toggle
-          </button>
+        <div className="flex justify-center w-full mt-2 text-center">
+          <div className="space-y-6">
+            <button
+              className="bg-accent-spotify hover:bg-accent-spotify-darker transition ease-in-out p-2 rounded-lg text-white text-base"
+              onClick={() => {
+                this.changeVis();
+              }}
+            >
+              Toggle
+            </button>
+
+            <p className="text-xs text-gray-400">
+              <a href="/privacy-policy" className="underline">
+                Privacy Policy
+              </a>{" "}
+            </p>
+          </div>
         </div>
       </>
     );

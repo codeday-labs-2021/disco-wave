@@ -28,7 +28,7 @@ export default function SignIn() {
                 privacy policy
               </a>{" "}
               and{" "}
-              <a href="#" className="underline">
+              <a href="/terms" className="underline">
                 terms of service
               </a>
               .
