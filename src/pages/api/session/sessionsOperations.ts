@@ -1,4 +1,5 @@
 const { Deta } = require("deta");
+
 const deta = Deta(process.env.DETA_KEY);
 const db = deta.Base("sessions_db");
 

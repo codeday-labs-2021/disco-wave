@@ -89,7 +89,12 @@ export default class Visualization extends React.Component {
             </button>
 
             <p className="text-xs text-gray-400">
-              <a href="/privacy-policy" className="underline">
+              <a
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
                 Privacy Policy
               </a>{" "}
             </p>
