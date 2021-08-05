@@ -46,3 +46,7 @@ GITHUB_SECRET=
 NEXTAUTH_URL=http://localhost:3000/
 DETA_KEY=
 ```
+
+## Thanks!
+
+Thank you so much for checking out DiscoWave. It would mean the world if you left a star on our GitHub repo!
