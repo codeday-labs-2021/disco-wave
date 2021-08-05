@@ -4,8 +4,6 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { GiSoundWaves } from "react-icons/gi";
 import { signOut, useSession } from "next-auth/client";
 import { useEffect } from "react";
-import Image from "next/image";
-import DiscoWaveLogo from "../../public/logo-with-text.svg";
 
 export default function Navbar() {
   const [session, loading] = useSession();
@@ -18,21 +16,31 @@ export default function Navbar() {
   }, [session]);
 
   return (
-    <div className="flex space-x-8 items-center border-b border-gray-300 px-4 py-2 font-bold">
-      <Image
-        src={DiscoWaveLogo}
-        width={400}
-        height={96}
+    <div className="flex space-x-4 md:space-x-8 items-center border-b border-gray-300 md:px-4 py-2 font-bold">
+      <img
+        src="/logo-with-text.svg"
+        className="md:block hidden"
+        width="200px"
+        height="48px"
         alt="Disco Wave Logo"
       />
+
+      <img
+        src="/disco-wave-logo.svg"
+        width="50px"
+        height="50px"
+        className="md:hidden"
+        alt="Disco Wave Logo"
+      />
+
       <div className="flex divide-x divide-gray-400 items-center">
         <div className="hover:underline pr-4">
-          <a href="/" className="flex items-center space-x-1">
+          <a href="/home" className="flex items-center space-x-1">
             <p>
               <AiOutlineHome fontSize="1.3rem" />
             </p>
 
-            <p>Home</p>
+            <p className="md:block hidden">Home</p>
           </a>
         </div>
         <div className="hover:underline pl-4">
@@ -40,7 +48,7 @@ export default function Navbar() {
             <p>
               <GiSoundWaves fontSize="1.5rem" />
             </p>
-            <p>Visualization</p>
+            <p className="md:block hidden">Visualization</p>
           </a>
         </div>
       </div>
@@ -48,11 +56,11 @@ export default function Navbar() {
       <div className="w-full justify-end flex space-x-6">
         {userPfp ? (
           <img
-            className="w-10 h-10 rounded-full border border-gray-300"
+            className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-gray-300"
             src={session.user.image}
           />
         ) : (
-          <AiOutlineUser className="w-10 h-10 border border-gray-300 rounded-full" />
+          <AiOutlineUser className="w-8 h-8 md:w-10 md:h-10 border border-gray-300 rounded-full" />
         )}
         <button
           className="flex space-x-2 bg-accent-primary hover:bg-accent-primary-darker transition ease-in-out p-2 rounded-lg text-white text-base"

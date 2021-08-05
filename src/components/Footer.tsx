@@ -54,6 +54,10 @@ export default function Footer() {
             </li>
 
             <li className="hover:text-gray-400 transition ease-in-out">
+              <a href="/terms">Terms of Service</a>
+            </li>
+
+            <li className="hover:text-gray-400 transition ease-in-out">
               <a href="/lawyers.txt">lawyers.txt</a>
             </li>
           </ul>

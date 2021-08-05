@@ -275,7 +275,7 @@ export default function Vizualization({ initialData, url }) {
                   >
                     {sessionId ? (
                       <img
-                        src={`https://api.qrserver.com/v1/create-qr-code/?data=http://${url}/suggestion/create?session_id=${sessionId}&size=170x170`}
+                        src={`https://api.qrserver.com/v1/create-qr-code/?data=http://${url}/suggestion/create?session_id=${sessionId}&size=180x180`}
                         alt={`https://${url}/suggestion/create?session_id=${sessionId}`}
                       />
                     ) : (
