@@ -8,6 +8,7 @@ const bcrypt = require("bcrypt");
 interface appendData {
   session_id: string;
   password: string;
+  admin_password: string;
   song_reqs: string[];
 }
 

@@ -17,12 +17,8 @@ const fetcher = async (input: RequestInfo, init: RequestInit, ...args) => {
   return res.json();
 };
 
-const reqsFetcher = async (
-  url: string,
-  password: string,
-  session_id: string
-) => {
-  if (!url || !password || !session_id) {
+const reqsFetcher = async (password: string, session_id: string) => {
+  if (!password || !session_id) {
     return [];
   }
 
@@ -50,7 +46,7 @@ export default function Vizualization({ initialData, url }) {
     refreshInterval: 1000,
   });
   let { data: reqData, error: reqError } = useSWR(
-    ["/api/session/verify", sessionPassword, sessionId],
+    [sessionPassword, sessionId],
 
     reqsFetcher,
     {
