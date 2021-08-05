@@ -160,7 +160,9 @@ export default function Vizualization({ initialData, url }) {
                     </div>
                   ) : (
                     <p className="text-md sm:text-lg font-bold">
-                      You're not playing a song on Spotify!
+                      {data.error
+                        ? "You're not signed in with Spotify"
+                        : "You're not playing a song on Spotify!"}
                     </p>
                   )}
                 </div>
@@ -322,8 +324,8 @@ export async function getServerSideProps(context) {
     res.end();
   }
 
-  let initialData = await getCurrentSong(session.accessToken);
-  if (initialData == undefined) {
+  let initialData = await getCurrentSong(session.accessToken, session.provider);
+  if (initialData === undefined) {
     initialData = null;
   }
   if (initialData.currentMS === undefined) {
