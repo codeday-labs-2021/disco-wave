@@ -12,7 +12,7 @@ DiscoWave is a website that a DJ can use with Spotify. Once a DJ has logged into
 
 - Frontend Framework: React/NextJS
 - Frontend Styling: Tailwind CSS
-- Icons: React Icons (combination of Font Awesome, Heroicons, Ant Design Icons, and Ionicons5
+- Icons: React Icons (combination of Font Awesome, Heroicons, Ant Design Icons, and Ionicons5)
 - Authentication: Next Auth
 - OAuth type: Spotify OAuth
 - Visualizer: p5.js
