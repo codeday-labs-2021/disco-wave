@@ -320,7 +320,10 @@ export async function getServerSideProps(context) {
     res.end();
   }
 
-  let initialData = await getCurrentSong(session.accessToken, session.provider);
+  let initialData = await getCurrentSong(
+    session.accessToken,
+    session.user.provider
+  );
   if (initialData === undefined) {
     initialData = null;
   }

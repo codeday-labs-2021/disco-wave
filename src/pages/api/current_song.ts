@@ -7,7 +7,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 export async function getCurrentSong(accessToken, provider) {
-  if (provider !== "Spotify") {
+  if (provider === "spotify") {
     spotifyApi.setAccessToken(accessToken);
     let data = await spotifyApi.getMyCurrentPlaybackState().then(
       function (data) {
