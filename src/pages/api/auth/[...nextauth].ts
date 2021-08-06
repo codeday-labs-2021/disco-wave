@@ -130,7 +130,8 @@ export default NextAuth({
         ...session,
         accessToken: token.accessToken,
         refreshToken: token.refreshToken,
-        user: { ...session.user, id: token.sub, provider: token.provider },
+        provider: token.provider,
+        user: { ...session.user, id: token.sub },
       });
     },
   },
